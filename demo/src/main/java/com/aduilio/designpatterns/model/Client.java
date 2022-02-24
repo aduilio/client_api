@@ -6,10 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Data;
 
+@Data
+@Builder
 @Entity
-@Getter
 public class Client {
 
 	@Id
