@@ -54,13 +54,13 @@ public class ClientServiceImpl implements ClientService {
 	private void checkAddress(final Client client) {
 		if (client.getAddress() != null && client.getAddress().getCep() != null) {
 			final String cep = client.getAddress().getCep();
-			Address address = addressRepository.findById(cep).orElseGet(() -> viaCepService.get(cep));
+			final Address address = addressRepository.findById(cep).orElseGet(() -> viaCepService.get(cep));
 
 			if (address.getCep() == null) {
 				throw new InvalidCepException(cep);
 			}
 
-			address = addressRepository.save(address);
+			addressRepository.save(address);
 
 			client.setAddress(address);
 		}
