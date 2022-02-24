@@ -41,6 +41,8 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public void update(final Long id, final Client client) {
+		checkAddress(client);
+
 		client.setId(id);
 		clientRepository.save(client);
 	}
